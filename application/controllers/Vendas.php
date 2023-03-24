@@ -56,7 +56,7 @@ class Vendas extends CI_Controller {
 
         if ($this->form_validation->run()) {
 
-            $venda_valor_total = str_replace('R$', "", trim($this->input->post('venda_valor_total')));
+            $venda_valor_total = str_replace('MZN', "", trim($this->input->post('venda_valor_total')));
 
             $data = elements(
                     array(
@@ -81,8 +81,8 @@ class Vendas extends CI_Controller {
             $produto_quantidade = $this->input->post('produto_quantidade');
             $produto_desconto = str_replace('%', '', $this->input->post('produto_desconto'));
 
-            $produto_preco_venda = str_replace('R$', '', $this->input->post('produto_preco_venda'));
-            $produto_item_total = str_replace('R$', '', $this->input->post('produto_item_total'));
+            $produto_preco_venda = str_replace('MZN', '', $this->input->post('produto_preco_venda'));
+            $produto_item_total = str_replace('MZN', '', $this->input->post('produto_item_total'));
 
             $produto_preco = str_replace(',', '', $produto_preco_venda);
             $produto_item_total = str_replace(',', '', $produto_item_total);
@@ -178,7 +178,7 @@ class Vendas extends CI_Controller {
 
             if ($this->form_validation->run()) {
 
-                $venda_valor_total = str_replace('R$', "", trim($this->input->post('venda_valor_total')));
+                $venda_valor_total = str_replace('MZN', "", trim($this->input->post('venda_valor_total')));
 
                 $data = elements(
                         array(
@@ -204,8 +204,8 @@ class Vendas extends CI_Controller {
                 $produto_quantidade = $this->input->post('produto_quantidade');
                 $produto_desconto = str_replace('%', '', $this->input->post('produto_desconto'));
 
-                $produto_preco_venda = str_replace('R$', '', $this->input->post('produto_preco_venda'));
-                $produto_item_total = str_replace('R$', '', $this->input->post('produto_item_total'));
+                $produto_preco_venda = str_replace('MZN', '', $this->input->post('produto_preco_venda'));
+                $produto_item_total = str_replace('MZN', '', $this->input->post('produto_item_total'));
 
                 $produto_preco = str_replace(',', '', $produto_preco_venda);
                 $produto_item_total = str_replace(',', '', $produto_item_total);
@@ -363,11 +363,11 @@ class Vendas extends CI_Controller {
             $html .= '<p align="right" style="font-size: 12px">Venda Nº&nbsp;' . $venda->venda_id . '</p>';
 
             $html .= '<p>'
-                    . '<strong>Cliente: </strong>' . $venda->cliente_nome_completo . '<br/>'
-                    . '<strong>CPF: </strong>' . $venda->cliente_cpf_cnpj . '<br/>'
-                    . '<strong>Celular: </strong>' . $venda->cliente_celular . '<br/>'
-                    . '<strong>Data de emissão: </strong>' . formata_data_banco_com_hora($venda->venda_data_emissao) . '<br/>'
-                    . '<strong>Forma de pagamento: </strong>' . $venda->forma_pagamento . '<br/>'
+                    . '<strong>Cliente: </strong>' . $venda->cliente_nome_completo . '<mz/>'
+                    . '<strong>CPF: </strong>' . $venda->cliente_cpf_cnpj . '<mz/>'
+                    . '<strong>Celular: </strong>' . $venda->cliente_celular . '<mz/>'
+                    . '<strong>Data de emissão: </strong>' . formata_data_banco_com_hora($venda->venda_data_emissao) . '<mz/>'
+                    . '<strong>Forma de pagamento: </strong>' . $venda->forma_pagamento . '<mz/>'
                     . '</p>';
 
 
@@ -412,9 +412,9 @@ class Vendas extends CI_Controller {
                 $html .= '<td>' . $produto->venda_produto_id_produto . '</td>';
                 $html .= '<td>' . $produto->produto_descricao . '</td>';
                 $html .= '<td>' . $produto->venda_produto_quantidade . '</td>';
-                $html .= '<td>' . 'R$&nbsp;' . $produto->venda_produto_valor_unitario . '</td>';
+                $html .= '<td>' . 'MZN&nbsp;' . $produto->venda_produto_valor_unitario . '</td>';
                 $html .= '<td>' . '%&nbsp;' . $produto->venda_produto_desconto . '</td>';
-                $html .= '<td>' . 'R$&nbsp;' . $produto->venda_produto_valor_total . '</td>';
+                $html .= '<td>' . 'MZN&nbsp;' . $produto->venda_produto_valor_total . '</td>';
                 $html .= '</tr>';
 
             endforeach;
@@ -422,7 +422,7 @@ class Vendas extends CI_Controller {
             $html .= '<th colspan="4">';
 
             $html .= '<td style="border-top: solid #ddd 1px"><strong>Valor final</strong></td>';
-            $html .= '<td style="border-top: solid #ddd 1px">' . 'R$&nbsp;' . $valor_final_venda->venda_valor_total . '</td>';
+            $html .= '<td style="border-top: solid #ddd 1px">' . 'MZN&nbsp;' . $valor_final_venda->venda_valor_total . '</td>';
 
             $html .= '</th>';
 
